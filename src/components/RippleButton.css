@@ -1,0 +1,73 @@
+/* ============================================================ */
+/* RippleButton 基礎樣式                                        */
+/* ============================================================ */
+.ripple-button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+}
+
+/* 動畫容器：確保波紋不會溢出按鈕邊界 */
+.ripple-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* 確保不干擾按鈕本身的點擊 */
+  z-index: 1;
+}
+
+/* ============================================================ */
+/* 幽靈款式 (Ghost Variant) - 邊緣流動特效                      */
+/* ============================================================ */
+
+/* 當滑鼠懸停於按鈕上時，啟動流動動畫 */
+.ripple-button:hover .ghost-edge {
+  position: absolute;
+  top: 0;
+  left: -100%; /* 動畫起點：按鈕左側外面 */
+  width: 100%;
+  height: 100%;
+
+  /* 幽靈波紋的光暈顏色與漸層 */
+  /* 若要調整波紋顏色，請修改 rgba(160, 210, 255, 0.5) 這部分 */
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    rgba(160, 210, 255, 0.4) 50%,
+    transparent 100%
+  );
+
+  /* 動畫參數設定：
+     ghost-flow: 動畫名稱
+     1.5s: 動畫完整週期時間 (越小越快)
+     infinite: 無限循環
+     linear: 等速運動 */
+  animation: ghost-flow 1.5s infinite linear;
+}
+
+/* 第二層波紋：增加視覺層次感 */
+.ripple-button:hover .ghost-edge:nth-child(2) {
+  /* 調整此延遲時間可以改變兩波之間的距離 */
+  animation-delay: 0.75s;
+}
+
+/* 流動動畫關鍵影格：由左向右移動 */
+@keyframes ghost-flow {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* ============================================================ */
+/* 背景微調：Hover 時按鈕色調稍作變化                           */
+/* ============================================================ */
+.ripple-button:hover {
+  /* 輕微的淡藍色漸層，增加通透感 */
+  background: linear-gradient(135deg, #ffffff 0%, #f7fbff 100%);
+}

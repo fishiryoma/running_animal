@@ -1,0 +1,55 @@
+/* Cute Notched Triangle Custom Cursors */
+.cursor-cute-solid {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M10,10 L10,30 L16,24 L20,34 L26,31 L20,21 L30,21 Z' fill='%23E6E6FA' stroke='%237B68EE' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E")
+      10 10,
+    auto;
+}
+
+.cursor-cute-dashed {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M14,14 L14,34 L20,28 L24,38 L30,35 L24,25 L34,25 Z' fill='none' stroke='%23B19CD9' stroke-width='10' stroke-linejoin='round' stroke-linecap='round' stroke-dasharray='0 14'/%3E%3Cpath d='M14,14 L14,34 L20,28 L24,38 L30,35 L24,25 L34,25 Z' fill='%23E6E6FA' stroke='%237B68EE' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E")
+      14 14,
+    auto;
+}
+
+.cursor-cute-glow {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpath d='M14,14 L14,34 L20,28 L24,38 L30,35 L24,25 L34,25 Z' fill='%23B19CD9' stroke='%23B19CD9' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M10,10 L10,30 L16,24 L20,34 L26,31 L20,21 L30,21 Z' fill='%23E6E6FA' stroke='%237B68EE' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E")
+      10 10,
+    auto;
+}
+
+/* Sweetheart Pink Notched Triangle Cursors */
+.cursor-pink-sticker {
+  cursor:
+    url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2 L12 28 Q13 30 14 28 L17 18 L27 15 Q29 14 27 13 L2 2 Z' fill='white' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 2 L12 28 Q13 30 14 28 L17 18 L27 15 Q29 14 27 13 L2 2 Z' fill='%23FB7185' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      4 4,
+    auto;
+}
+
+.cursor-pink-glow {
+  cursor:
+    url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2 L12 28 Q13 30 14 28 L17 18 L27 15 Q29 14 27 13 L2 2 Z' fill='none' stroke='%23FB7185' stroke-opacity='0.3' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 2 L12 28 Q13 30 14 28 L17 18 L27 15 Q29 14 27 13 L2 2 Z' fill='%23FB7185' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      4 4,
+    auto;
+}
+
+.cursor-pink-sparkle {
+  cursor:
+    url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2 L12 28 Q13 30 14 28 L17 18 L27 15 Q29 14 27 13 L2 2 Z' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='0 6'/%3E%3Cpath d='M2 2 L12 28 Q13 30 14 28 L17 18 L27 15 Q29 14 27 13 L2 2 Z' fill='%23FB7185' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      4 4,
+    auto;
+}
+
+/* Preview Box Styles */
+.cursor-preview-box {
+  transition: all 0.3s ease;
+  border-color: rgba(177, 156, 217, 0.3);
+}
+
+.cursor-preview-box:hover {
+  border-color: rgba(177, 156, 217, 1);
+  background-color: rgba(177, 156, 217, 0.1);
+  transform: translateY(-4px);
+}
