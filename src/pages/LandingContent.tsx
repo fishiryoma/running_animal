@@ -1,4 +1,3 @@
-import { RippleButton } from '../components/RippleButton'
 import '../styles/Cursors.css'
 
 export function LandingContent() {
@@ -11,7 +10,7 @@ export function LandingContent() {
   ]
 
   return (
-    <div className='flex min-h-screen flex-col items-center justify-center px-6 text-center text-white'>
+    <div className='flex min-h-screen flex-col items-center justify-center p-6 text-center text-white'>
       {/* 主標題 */}
       <h1 className='mb-6 text-5xl font-extrabold tracking-tight drop-shadow-lg'>
         探索奇幻森林
@@ -24,12 +23,26 @@ export function LandingContent() {
         發現隱藏在森林深處那不為人知的古老秘密。
       </p>
 
-      {/* 行動按鈕：目前僅保留幽靈波紋款式 */}
-      <div className='mb-16'>
-        <RippleButton onClick={() => alert('進入森林')}>開始探索</RippleButton>
-      </div>
-
       {/* 主題色展示區 */}
+      <div className='mt-8 w-full max-w-4xl'>
+        <h2 className='mb-6 text-2xl font-bold opacity-80'>
+          推薦主題色：藍綠之森
+        </h2>
+        <div className='grid grid-cols-2 gap-4 sm:grid-cols-5'>
+          {themeColors.map((color, index) => (
+            <div key={index} className='group flex flex-col items-center'>
+              <div
+                className='h-16 w-16 rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-110'
+                style={{ backgroundColor: color.hsl }}
+              />
+              <span className='mt-2 text-xs font-medium opacity-70'>
+                {color.name}
+              </span>
+              <span className='text-[10px] opacity-50'>{color.hex}</span>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className='mt-8 w-full max-w-4xl'>
         <h2 className='mb-6 text-2xl font-bold opacity-80'>
           推薦主題色：藍綠之森

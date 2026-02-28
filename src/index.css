@@ -20,3 +20,10 @@
 @utility font-artistic-jp {
   font-family: var(--font-artistic-jp);
 }
+
+/* 全域隱藏滑鼠指標，避免與自定義指標重複顯示 */
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}

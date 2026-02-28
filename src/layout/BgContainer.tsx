@@ -1,6 +1,8 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import catSprites8 from '../assets/cat sprites8.png'
 import house from '../assets/house.png'
+import CustomCursor from '../components/CustomCursor'
+import { Navbar } from './Navbar'
 
 /**
  * BackgroundContainer 組件
@@ -47,14 +49,18 @@ export function BgContainer({
     window.addEventListener('scroll', handleScroll)
     handleScroll() // 初始化檢查
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   return (
-    <div className='fixed top-0 left-0 h-screen w-full overflow-hidden bg-black font-sans'>
+    <div className='relative min-h-screen w-full bg-black'>
+      <CustomCursor />
+
       {/* 1. 背景層 (z-0)：隨滾動有輕微的位移效果 */}
       <div
-        className='absolute top-0 left-0 z-0 h-full w-full bg-cover bg-center transition-transform duration-100 ease-out'
+        className='fixed top-0 left-0 z-0 h-screen w-full bg-cover bg-center transition-transform duration-100 ease-out'
         style={{
           backgroundImage: `url("${house}")`,
           transform: `translateX(-${progress * 10}%)`,
@@ -65,7 +71,7 @@ export function BgContainer({
 
       {/* 2. 角色層 (z-20)：隨滾動水平移動並切換幀動畫 */}
       <div
-        className={`absolute -bottom-41 z-20 ${className || ''}`}
+        className={`fixed -bottom-41 z-20 ${className || ''}`}
         style={{
           left: `calc(${progress * 100}% - ${progress * SPRITE_WIDTH}px)`,
           width: `${SPRITE_WIDTH}px`,
@@ -80,8 +86,9 @@ export function BgContainer({
         }}
       />
 
-      {/* 3. 內容圖層 (z-30)：放置 children，具備滾動能力與點擊互動 */}
-      <div className='hide-scrollbar pointer-events-auto relative z-30 h-full w-full overflow-auto'>
+      {/* 3. 內容圖層 (z-1)：放置 children，具備滾動能力與點擊互動 */}
+      <div className='relative z-1 w-full pt-24'>
+        <Navbar />
         {children}
       </div>
     </div>
