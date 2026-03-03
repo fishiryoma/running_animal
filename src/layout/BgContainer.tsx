@@ -1,8 +1,8 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import catSprites8 from '../assets/cat sprites8.png'
 import house from '../assets/house.png'
+import ClickSpark from '../components/ClickSpark'
 import CustomCursor from '../components/CustomCursor'
-import { Navbar } from './Navbar'
 
 /**
  * BackgroundContainer 組件
@@ -56,41 +56,40 @@ export function BgContainer({
 
   return (
     <div className='relative min-h-screen w-full bg-black'>
-      <CustomCursor />
+      <ClickSpark>
+        <CustomCursor />
 
-      {/* 1. 背景層 (z-0)：隨滾動有輕微的位移效果 */}
-      <div
-        className='fixed top-0 left-0 z-0 h-screen w-full bg-cover bg-center transition-transform duration-100 ease-out'
-        style={{
-          backgroundImage: `url("${house}")`,
-          transform: `translateX(-${progress * 10}%)`,
-          width: '120%',
-          opacity: 0.75,
-        }}
-      />
+        {/* 1. 背景層 (z-0)：隨滾動有輕微的位移效果 */}
+        <div
+          className='fixed top-0 left-0 z-0 h-screen w-full bg-cover bg-center transition-transform duration-100 ease-out'
+          style={{
+            backgroundImage: `url("${house}")`,
+            transform: `translateX(-${progress * 10}%)`,
+            width: '120%',
+            opacity: 0.95,
+          }}
+        />
 
-      {/* 2. 角色層 (z-20)：隨滾動水平移動並切換幀動畫 */}
-      <div
-        className={`fixed -bottom-41 z-20 ${className || ''}`}
-        style={{
-          left: `calc(${progress * 100}% - ${progress * SPRITE_WIDTH}px)`,
-          width: `${SPRITE_WIDTH}px`,
-          height: `${SPRITE_HEIGHT}px`,
-          backgroundImage: `url("${catSprites8}")`,
-          backgroundSize: `${TOTAL_FRAMES * SPRITE_WIDTH}px ${SPRITE_HEIGHT}px`,
-          backgroundPosition: `-${frameIndex * SPRITE_WIDTH}px 0`,
-          backgroundRepeat: 'no-repeat',
-          imageRendering: 'pixelated',
-          transition: 'left 0.1s linear',
-          ...style,
-        }}
-      />
+        {/* 2. 角色層 (z-20)：隨滾動水平移動並切換幀動畫 */}
+        <div
+          className={`fixed -bottom-41 z-20 ${className || ''}`}
+          style={{
+            left: `calc(${progress * 100}% - ${progress * SPRITE_WIDTH}px)`,
+            width: `${SPRITE_WIDTH}px`,
+            height: `${SPRITE_HEIGHT}px`,
+            backgroundImage: `url("${catSprites8}")`,
+            backgroundSize: `${TOTAL_FRAMES * SPRITE_WIDTH}px ${SPRITE_HEIGHT}px`,
+            backgroundPosition: `-${frameIndex * SPRITE_WIDTH}px 0`,
+            backgroundRepeat: 'no-repeat',
+            imageRendering: 'pixelated',
+            transition: 'left 0.1s linear',
+            ...style,
+          }}
+        />
 
-      {/* 3. 內容圖層 (z-1)：放置 children，具備滾動能力與點擊互動 */}
-      <div className='relative z-1 w-full pt-24'>
-        <Navbar />
-        {children}
-      </div>
+        {/* 3. 內容圖層 (z-1)：放置 children，具備滾動能力與點擊互動 */}
+        <div className='relative z-1 w-full'>{children}</div>
+      </ClickSpark>
     </div>
   )
 }

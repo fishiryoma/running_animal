@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { CONSTANTS } from '../constants'
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -11,9 +12,11 @@ export function Navbar() {
   ]
 
   return (
-    <nav className='pointer-events-auto absolute top-0 right-0 z-50 flex w-full'>
-      <div className='mx-8 mt-6 flex w-full items-center justify-between rounded-3xl bg-white/60 px-8 backdrop-blur-sm h-14 md:h-18 md:border-3 md:border-gray-800'>
-        <div className='text-xl font-bold tracking-wider'></div>
+    <nav className='pointer-events-auto fixed top-0 right-0 z-50 flex w-full'>
+      <div
+        className={`mx-8 mt-6 flex w-full items-center justify-between ${CONSTANTS.UI.borderRadius} h-14 bg-white/60 px-8 backdrop-blur-sm md:h-18 md:${CONSTANTS.UI.borderWidth} md:border-gray-800`}
+      >
+        <div className='text-xl font-bold tracking-wider'>RUNNING ANIMAL</div>
 
         {/* 電腦版選單 */}
         <ul className='hidden space-x-8 md:flex'>
