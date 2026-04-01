@@ -10,47 +10,53 @@ interface ProfileCardProps {
 }
 
 export const ProfileCard = ({
-  githubUrl = '#',
-  linkedinUrl = '#',
+  githubUrl = 'https://github.com/fishiryoma',
+  linkedinUrl = 'https://www.linkedin.com/in/%E7%90%AC%E7%91%9C-%E9%BB%83-860203112/',
 }: ProfileCardProps) => {
+  const socialLinks = [
+    { href: githubUrl, icon: <Github size={24} />, label: 'GitHub' },
+    { href: linkedinUrl, icon: <Linkedin size={24} />, label: 'LinkedIn' },
+  ]
+
   return (
-    <div className='flex flex-col items-center justify-center gap-4'>
-      <FlipCard
-        className={`h-64 w-64 ${CONSTANTS.UI.borderRadius} bg-white/20 backdrop-blur-md`}
-        front={
-          <img
-            src={icon01}
-            alt='Icon 01'
-            className='h-full w-full object-cover'
-          />
-        }
-        back={
-          <img
-            src={icon02}
-            alt='Icon 02'
-            className='h-full w-full object-cover'
-          />
-        }
-      />
+    <div className='flex flex-col items-center justify-center gap-6'>
+      <div className='relative'>
+        <div className={`absolute -top-4 left-4 z-10 pixel-tag ${CONSTANTS.LABEL_COLORS.orange} px-3 py-1 text-xs font-bold whitespace-nowrap ${CONSTANTS.TEXT_COLORS.white}`}>
+          PROFILE
+        </div>
+        <FlipCard
+          className='h-64 w-64 pixel-card bg-white/80'
+          front={
+            <img
+              src={icon01}
+              alt='Icon 01'
+              className='h-full w-full object-cover'
+            />
+          }
+          back={
+            <img
+              src={icon02}
+              alt='Icon 02'
+              className='h-full w-full object-cover'
+            />
+          }
+        />
+      </div>
 
       {/* 社群圖示區域 */}
-      <div className='flex justify-center gap-6 rounded-full bg-black/40 px-6 py-2 backdrop-blur-md transition-all hover:bg-black/10'>
-        <a
-          href={githubUrl}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-white/70 transition-colors hover:text-white'
-        >
-          <Github size={24} />
-        </a>
-        <a
-          href={linkedinUrl}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-white/70 transition-colors hover:text-white'
-        >
-          <Linkedin size={24} />
-        </a>
+      <div className='flex justify-center gap-4'>
+        {socialLinks.map((link, index) => (
+          <a
+            key={index}
+            href={link.href}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={`flex h-10 w-10 items-center justify-center bg-white ${CONSTANTS.TEXT_COLORS.dark} pixel-btn-shadow pixel-btn-active transition-colors hover:text-pixel-orange`}
+            aria-label={link.label}
+          >
+            {link.icon}
+          </a>
+        ))}
       </div>
     </div>
   )

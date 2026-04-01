@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { CONSTANTS } from '../constants'
 
 const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null)
@@ -7,7 +6,7 @@ const CustomCursor = () => {
   const newShapePath =
     'M4 4 L18 42 C19.5 44 21.5 44 23 42 L28 28 L42 23 C44 21.5 44 19.5 42 18 L4 4 Z'
 
-  const { pastelPurple } = CONSTANTS.COLORS
+
   const strokeW = '5.5'
 
   useEffect(() => {
@@ -74,7 +73,7 @@ const CustomCursor = () => {
         </filter>
         <path
           d={newShapePath}
-          fill={pastelPurple}
+          fill="var(--color-pixel-purple)"
           stroke='#000000'
           strokeWidth={strokeW}
           strokeLinejoin='round'

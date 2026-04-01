@@ -1,9 +1,13 @@
 export const CONSTANTS = {
-  COLORS: {
-    pastelPurple: '#E0BBE4',
+  LABEL_COLORS: {
+    blue: 'bg-pixel-blue',
+    green: 'bg-pixel-green',
+    red: 'bg-pixel-red',
+    orange: 'bg-pixel-orange',
+    dark: 'bg-pixel-dark',
   },
-  UI: {
-    borderRadius: 'rounded-3xl',
-    borderWidth: 'border-3',
+  TEXT_COLORS: {
+    dark: 'text-pixel-dark',
+    white: 'text-pixel-white',
   },
 } as const

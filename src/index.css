@@ -1,12 +1,22 @@
 @import 'tailwindcss';
 
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ma+Shan+Zheng&family=Kaisei+Opti&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ma+Shan+Zheng&family=Kaisei+Opti&family=Silkscreen:wght@400;700&display=swap');
 
 @theme {
   --font-artistic-en: 'Playfair Display', serif;
   --font-artistic-zh: 'Ma Shan Zheng', cursive;
   --font-artistic-jp: 'Kaisei Opti', serif;
+  --font-pixel: 'Silkscreen', cursive;
+
+  /* Pixel Style Colors */
+  --color-pixel-dark: #2d3337;
+  --color-pixel-white: #ffffff;
+  --color-pixel-red: #991b1b;
+  --color-pixel-blue: #3c5a7a;
+  --color-pixel-green: #0d9488;
+  --color-pixel-orange: #fb923c;
+  --color-pixel-purple: #e0bbe4;
 }
 
 @utility font-artistic-en {
@@ -21,9 +31,49 @@
   font-family: var(--font-artistic-jp);
 }
 
+@utility font-pixel {
+  font-family: var(--font-pixel);
+}
+
 /* 全域隱藏滑鼠指標，避免與自定義指標重複顯示 */
 *,
 *::before,
 *::after {
   cursor: none !important;
+}
+
+/* 像素風格樣式 */
+@utility pixel-card {
+  box-shadow:
+    0 -4px 0 0 var(--color-pixel-dark),
+    0 4px 0 0 var(--color-pixel-dark),
+    -4px 0 0 0 var(--color-pixel-dark),
+    4px 0 0 0 var(--color-pixel-dark);
+  border: none;
+  border-radius: 0;
+}
+
+@utility pixel-tag {
+  box-shadow:
+    0 -3px 0 0 var(--color-pixel-dark),
+    0 3px 0 0 var(--color-pixel-dark),
+    -3px 0 0 0 var(--color-pixel-dark),
+    3px 0 0 0 var(--color-pixel-dark);
+}
+
+@utility pixel-bar-bg {
+  box-shadow:
+    0 -2px 0 0 var(--color-pixel-dark),
+    0 2px 0 0 var(--color-pixel-dark),
+    -2px 0 0 0 var(--color-pixel-dark),
+    2px 0 0 0 var(--color-pixel-dark);
+}
+
+.pixel-btn-shadow {
+  box-shadow: 4px 4px 0 0 var(--color-pixel-dark);
+}
+
+.pixel-btn-active:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 var(--color-pixel-dark);
 }
